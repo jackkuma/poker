@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Poker card</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="app">
+  <div class="control">
+    <input type="checkbox" v-model="gather" disabled/>
+    <input type="checkbox" v-for="card in cards" v-model="card.open" disabled/>
+    <button @click="shuffle">shuffle</button>
+    <h2>{{state}}</h2>
+  </div>
+  <div class="cards" :class="{gather: gather}">
+    <div class="card" v-for="card in cards" :class="{open: card.open}" :data-order="card.id" @click="openCard(card)">
+      <div class="face back"> </div>
+      <div class="face front">{{getSymbol(card.label)}}</div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js'></script>
+  <script  src="./script.js"></script>
+</body>
+</html>
