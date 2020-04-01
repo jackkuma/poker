@@ -1,0 +1,114 @@
+html, body {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  background-color: #172e3d;
+  color: #fff;
+}
+
+.cards {
+  width: 100%;
+  height: 40vh;
+}
+.cards .card {
+  width: 15vw;
+  height: 21vw;
+  left: calc(50% - 7.5vw);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  position: absolute;
+  top: 35%;
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: left 0.5s, top 0.5s, -webkit-transform 1s;
+  transition: left 0.5s, top 0.5s, -webkit-transform 1s;
+  transition: transform 1s, left 0.5s, top 0.5s;
+  transition: transform 1s, left 0.5s, top 0.5s, -webkit-transform 1s;
+}
+.cards .card .face {
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  background-color: #fff;
+  border-radius: 5px;
+  color: #222;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.cards .card .face.front {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  background-color: #fff;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  font-size: 5em;
+}
+.cards .card .face.back {
+  box-sizing: border-box;
+  padding: 10px;
+}
+.cards .card .face.back:before {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(-60deg, transparent 40%, #fc3737 40%, #fc3737 60%, transparent 60%), linear-gradient(60deg, transparent 40%, #fc3737 40%, #fc3737 60%, transparent 60%);
+  background-size: 6px 10px;
+  box-sizing: border-box;
+  border: 3px solid #fc3737;
+  content: "";
+  display: block;
+}
+.cards .card.open {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+.cards .card[data-order="1"] {
+  left: calc(20% - 7.5vw);
+}
+.cards .card[data-order="2"] {
+  left: calc(40% - 7.5vw);
+}
+.cards .card[data-order="3"] {
+  left: calc(60% - 7.5vw);
+}
+.cards .card[data-order="4"] {
+  left: calc(80% - 7.5vw);
+}
+.cards .card:hover {
+  top: 30%;
+}
+.cards.gather {
+  cursor: pointer;
+}
+.cards.gather .card {
+  left: calc(50% - 7.5vw);
+  top: 20%;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.cards.gather:hover .card[data-order="1"] {
+  -webkit-transform: rotate(190deg);
+          transform: rotate(190deg);
+}
+.cards.gather:hover .card[data-order="2"] {
+  -webkit-transform: rotate(200deg);
+          transform: rotate(200deg);
+}
+.cards.gather:hover .card[data-order="3"] {
+  -webkit-transform: rotate(210deg);
+          transform: rotate(210deg);
+}
+.cards.gather:hover .card[data-order="4"] {
+  -webkit-transform: rotate(220deg);
+          transform: rotate(220deg);
+}
